@@ -3,7 +3,7 @@ House Boat booking website
 
 
 # How to run
-- Firstly install python and pip.
+- Firstly install python, pip and clone the folder locally and open it in terminal.
 - Next run,
 ```
 pip install -r requirements.txt
