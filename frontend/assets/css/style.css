@@ -392,6 +392,10 @@ body { background: var(--white); }
   position: relative;
 }
 
+#bright{
+  filter: brightness(50%);
+}
+
 .hero-title { margin-bottom: 20px; }
 
 .hero-text {
