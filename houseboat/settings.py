@@ -80,10 +80,14 @@ WSGI_APPLICATION = 'houseboat.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'neondb',
+    'USER': 'akashrchandran',
+    'PASSWORD': 'TcgEb1kJ0lNB',
+    'HOST': 'ep-frosty-sea-561997.ap-southeast-1.aws.neon.tech',
+    'PORT': '5432',
+  }
 }
 
 
