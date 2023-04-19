@@ -523,6 +523,41 @@ body { background: var(--white); }
 .popular .btn { margin-inline: auto; }
 
 
+/*-----------------------------------*\
+ * #YouTube
+\*-----------------------------------*/
+
+
+/* Create two equal columns that floats next to each other */
+
+.column1 {
+  float: left;
+  width:55%;
+  /*padding-top: 180px;*/
+  height:500px; /* Should be removed. Only for demonstration */
+  text-align: center;
+  position: relative;
+}
+.column2 {
+  float: right;
+  width:45%;
+  padding-top: 180px;
+  /*padding: 10px;*/
+  height:500px; /* Should be removed. Only for demonstration */
+  text-align: center;
+  position: relative;
+  border-radius: 0px 15px 15px 0px;
+}
+iframe{
+  border-radius:15px 0px 0px 15px;
+ }
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 
 
@@ -1381,28 +1416,6 @@ address {
   box-sizing: border-box;
 }
 
-/* Create two equal columns that floats next to each other */
-.column2 {
-  float: left;
-  width:50%;
-  /*padding: 10px;*/
-  height:500px; /* Should be removed. Only for demonstration */
-  text-align: center;
-}
-.column1 {
-  float: left;
-  width:50%;
-  padding-top: 180px;
-  height:500px; /* Should be removed. Only for demonstration */
-  text-align: center;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
