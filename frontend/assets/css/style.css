@@ -529,7 +529,10 @@ body { background: var(--white); }
 
 
 /* Create two equal columns that floats next to each other */
+.row{
+  position: relative;
 
+}
 .column1 {
   float: left;
   width:55%;
@@ -557,6 +560,10 @@ iframe{
   content: "";
   display: table;
   clear: both;
+}
+.btn-you{
+  display: inline;
+  margin-top: 20px;
 }
 
 
