@@ -1375,3 +1375,38 @@ address {
 .slideshow img:nth-child(3) {
   animation: slide 5s linear infinite;
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column2 {
+  float: left;
+  width:50%;
+  /*padding: 10px;*/
+  height:500px; /* Should be removed. Only for demonstration */
+  text-align: center;
+}
+.column1 {
+  float: left;
+  width:50%;
+  padding-top: 180px;
+  height:500px; /* Should be removed. Only for demonstration */
+  text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
