@@ -44,3 +44,5 @@ window.addEventListener("scroll", function () {
   }
 
 });
+
+AOS.init({delay:200, offset: 100, duration: 500});
