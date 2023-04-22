@@ -397,6 +397,7 @@ body { background: var(--white); }
 }
 
 .hero-title { 
+  <!-- Creates space between nav bar and title -->
   padding-top: 150px;
   margin-bottom: 20px; }
 
