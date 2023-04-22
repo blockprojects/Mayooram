@@ -396,7 +396,9 @@ body { background: var(--white); }
   filter: brightness(50%);
 }
 
-.hero-title { margin-bottom: 20px; }
+.hero-title { 
+  padding-top: 150px;
+  margin-bottom: 20px; }
 
 .hero-text {
   color: var(--white);
