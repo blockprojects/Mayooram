@@ -121,7 +121,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body { background: var(--white); }
+body { background: var(--white);}
 
 
 
@@ -131,7 +131,7 @@ body { background: var(--white); }
  * #REUSED STYLE
 \*-----------------------------------*/
 
-.container { padding-inline: 15px; }
+.container { padding-inline: 15px;}
 
 .btn {
   color: var(--white);
@@ -413,6 +413,7 @@ body { background: var(--white); }
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-bottom: 20px;
 }
 
 
@@ -1372,7 +1373,7 @@ address {
 .hero {
   display: grid;
   place-items: center;
-  min-height: 600px;
+  /* min-height: 600px; */
   text-align: center;
   /* padding-top: 125px; */
 }
