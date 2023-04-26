@@ -1491,15 +1491,16 @@ address {
 }
 
 .flex-container > div {
-  flex-basis: calc(16.66% - 10px);
+  flex-basis: calc(30.66% - 10px);
   box-sizing: border-box;
   padding: 10px;
   background-color: #f1f1f1;
-  width: 20%;
-  height: 110px;
+  width: auto;
+  height: 100px;
   margin: 10px;
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 767px) {
