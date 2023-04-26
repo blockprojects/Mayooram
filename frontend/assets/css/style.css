@@ -1450,25 +1450,34 @@ address {
   width: 850px;*/
   height: 50%;
   width: 67%;
-  background-color: yellow;
-  margin: 200px;
-  border: 2px solid black;
-  outline-style: outset;
-  outline-color: grey;
-  border-radius: 10px;
-  box-shadow: 5px 10px 8px 10px #888888;
-  
+  margin-top:2%;
+  margin-bottom: 5%;
+  /*outline-style: outset;*/
+  border-radius: 30px;
+  text-align: center;
+ /* box-shadow: 5px 10px 8px 10px #888888;*/ 
 }
 
 .pack-text{
   padding: 50px;
 }
 
-img {
+.pack img {
   width: 100%;
   height: auto;
+  border-radius: 20px;
 }
 
+.packdesc{
+  height: 50%;
+  width: 67%;
+  margin-top:2%;
+  margin-bottom: 5%;
+  outline-style: outset;
+  border-radius: 30px;
+  text-align: center;
+  padding: 20px;
+}
 
 
 .flex-container {
