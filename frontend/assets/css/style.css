@@ -1577,3 +1577,55 @@ address {
   text-align:center;
 }
 */
+
+/*  
+
+----------    services   -----------
+
+*/
+
+ul {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  word-wrap: break-word;
+  
+}
+ul.service-list {
+    column-count: 2;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+ul.service-list li {
+  font-size: 1rem;
+  padding-bottom: 10px;
+  font-weight: 400;
+  text-align: left;
+}
+li {
+  display: list-item;
+}
+ol, ul {
+    list-style: none;
+}
+
+ul.service-list li:before {
+  content: '🔘';
+  /* font-family: 'Material-Design-Iconic-Font';
+  color: #295cb9; */
+  display: inline-block;
+  margin-left: -1em;
+  width: 1.3em;
+  box-sizing: border-box;
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 1500px){
+  ul.service-list {
+    column-count: 1;
+  }
+}
