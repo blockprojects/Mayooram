@@ -228,9 +228,9 @@
       <!-- 
         - #PACKAGE
       -->
-      <div class="bg-image" style="background-image: url('./assets/images/navbar.jpg');height: 25vh; width: auto;">
+        <div class="bg-image" style="background-color: hsl(206, 34%, 20%) ;height: 30vh; width: auto;">
 
-      </div>
+      </div>   
      
 
 <!----
@@ -598,6 +598,7 @@
       <li>Speed Boat and Canoes on demand</li>
     </ul>
 </div>
+<button class="btn btn-primary" id="booknow">Book Now</button>
     </article>
   </main>
 
@@ -753,7 +754,37 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+  const button = document.getElementById('booknow');
+  console.log(button);
+  button.addEventListener("click",async function () {
 
+  const { value: formValues } = await Swal.fire({
+    title: 'Fill the form',
+    html:
+      '<label for="swal-input1">Enter name</label>' +
+      '<input id="swal-input1" type="name" class="swal2-input">' +
+      '<label for="swal-input2">Enter email</label>' +
+      '<input id="swal-input2" type="email" class="swal2-input">'+
+      '<label for="swal-input3">Enter phone</label>' +
+      '<input id="swal-input3" type="number" class="swal2-input">',
+    focusConfirm: false,
+    preConfirm: () => {
+      return [
+        document.getElementById('swal-input1').value,
+        document.getElementById('swal-input2').value,
+        document.getElementById('swal-input3').value
+      ]
+    }
+  })
+
+  if (formValues) {
+    Swal.fire(JSON.stringify(formValues))
+  }
+
+  });
+  </script>
 </body>
 
 </html>
