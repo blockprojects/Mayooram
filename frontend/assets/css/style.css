@@ -1578,3 +1578,7 @@ ul.service-list li:before {
     column-count: 1;
   }
 }
+
+.footer-brand img{
+  border-radius: 30px;
+}
