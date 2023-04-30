@@ -1680,7 +1680,7 @@ address {
   /* height:800px;
   width: 850px;*/
   height: 50%;
-  width: 67%;
+  width: 85%;
   margin-top: 2%;
   margin-bottom: 5%;
   /*outline-style: outset;*/
@@ -1691,7 +1691,7 @@ address {
 }
 
 .pack-text {
-  padding: 50px;
+  padding: 50%;
 }
 
 .pack img {
@@ -1702,7 +1702,7 @@ address {
 
 .packdesc {
   height: 50%;
-  width: 67%;
+  width: 85%;
   margin-top: 2%;
   margin-bottom: 5%;
 
@@ -1724,6 +1724,7 @@ address {
 
 .flex-container>div {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -1745,7 +1746,7 @@ address {
 
 .containerpack {
   /* padding: 5%;*/
-  padding-left: 25%;
+  padding-left: 17.5%;
   padding-top: 3%;
   padding-bottom: 3%;
 
