@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'houseboat.wsgi.application'
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'neondb',
+    'NAME': 'houseboat',
     'USER': 'akashrchandran',
     'PASSWORD': 'TcgEb1kJ0lNB',
     'HOST': 'ep-frosty-sea-561997.ap-southeast-1.aws.neon.tech',
