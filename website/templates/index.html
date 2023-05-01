@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +12,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
   <!-- 
     - google font link
@@ -795,7 +797,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 
   <!-- 
     - ionicon link
