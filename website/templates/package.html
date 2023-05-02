@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +12,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
   <!-- 
     - google font link
@@ -171,34 +173,20 @@
         <h3>ALLEPPEY KUMARAKOM ROUND</h3>
 
         <div class="pack">
-          <div><img src="./assets/images/samplepack.jpg"></div>
+            <img src="/{{ package.pack_desc_image }}">
         </div>
 
         <div>
           <h1>Description</h1>
         </div>
         <div class="packdesc">
-          <p>The Alleppey Kumarakom package provides a beautiful glimpse into the local village life beside the
-            backwaters, in between the major towns with Kumarakom on the east of Vembanad lake and Appeppey to the west.
-            <br>
-            <br>
-            The cruise starts at 12 Noon from Alleppey and reaches Meenapally Kayal for lunch. After a sumptuous
-            traditional unu (kerala lunch), cruise leisurely thorough the lagoons into the serenity of the Vembanad and
-            anchors at sunset at Rani Kayal.
-            Reach Kumarakom the next day at 9 30 AM, and after breakfast continue your journey into Kerala.
-          </p>
+          <p>{{ package.pack_description|linebreaks }}</p>
         </div>
         <div>
           <h1>The cruise includes</h1>
         </div>
         <div class="packdesc">
-          <p>Meenpally Kayal - Soak in the rustic village life of kuttanad, with the men working the rice fields, women
-            washing clothes by the lake or fishing for a price catch of pearlspots (karimeen) for lunch.
-            <br>
-            <br>
-            Kumarakom Mangrove forests - A visit to the kumarakom bird sanctuary and a stroll near the mangroves. (
-            sanctuary entry charges & timings apply)
-          </p>
+          <p>{{ package.pack_includes|linebreaks }}</p>
         </div>
 
         <h3>AMENITIES</h3>
@@ -227,19 +215,9 @@
         </div>
         <div class="packdesc">
           <ul class="service-list">
-            <li>Pick and Drop : from Airport / Railway / Bus Stations</li>
-            <li>Day and Overnight Cruises</li>
-            <li>Traditional Kerala & Continental Cuisine: Veg & Non-Veg</li>
-            <li>Local Toddy shop visit (on demand)</li>
-            <li>50 pax. Conférence facility</li>
-            <li>24 * 7 A/C Bedrooms</li>
-            <li>24 * 7 Power Backup</li>
-            <li>Video and Audio Systems</li>
-            <li>Well- groomed and friendly staff</li>
-            <li>Doctor on Call</li>
-            <li>On Board Safety kit</li>
-            <li>Ayurvedic Massages on demand</li>
-            <li>Speed Boat and Canoes on demand</li>
+            {% for services in package.pack_services %}
+            <li>{{ services }}</li>
+            {% endfor %}
           </ul>
         </div>
         <div class="buttonarray">
@@ -287,7 +265,7 @@
         <div class="footer-brand">
           <h1>BOOK NOW</h1>
           <br>
-          <img id="visa" src="./assets/images/visa.jpg" alt="San miguel, italy" loading="lazy">
+          <img id="visa" src="{% static 'img/pay_methods.jpg' %}" alt="San miguel, italy" loading="lazy">
 
         </div>
 
@@ -388,7 +366,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 
   <!-- 
     - ionicon link
