@@ -145,9 +145,9 @@
       -->
       <div class="hero">
         <div class="slideshow">
-          <img src="./assets/images/housebot.jpg" alt="Housebot" id="bright">
-          <img src="./assets/images/housebot2.jpg" alt="Image 2" id="bright">
-          <img src="./assets/images/housebot3.jpg" alt="Image 2" id="bright">
+          {% for file in slideshow %}
+            <img src="{{ file.image }}" alt="{{ file.alternate_tag }}" id="bright">
+          {% endfor %}
           <section class="hero" id="home">
             <div class="container">
 
@@ -189,12 +189,12 @@
           </p>
 
           <ul class="popular-list">
-
+            {% for package in packages %}
             <li data-aos="zoom-in-up">
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="./assets/images/popular-1.jpg" alt="San miguel, italy" loading="lazy">
+                  <img src="{{ package.dest_image }}" alt="{{ package.dest_image }} package" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -208,88 +208,22 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="#">Kerala</a>
+                    <a href="#"></a>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">Alleppey Kumarakom Round</a>
+                    <a href="#">{{ package.name }}</a>
                   </h3>
 
                   <p class="card-text">
-                    The Alleppey Kumarakom package.
+                    The {{ package.name }} Round package.
                   </p>
                 </div>
 
               </div>
             </li>
-
-            <li data-aos="zoom-in-up">
-              <div class="popular-card">
-
-                <figure class="card-img">
-                  <img src="./assets/images/popular-2.jpg" alt="Burj khalifa, dubai" loading="lazy">
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-
-                  <p class="card-subtitle">
-                    <a href="#">Kerala</a>
-                  </p>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Alleppey Round</a>
-                  </h3>
-
-                  <p class="card-text">
-                    The Alleppey Round package.
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li data-aos="zoom-in-up">
-              <div class="popular-card">
-
-                <figure class="card-img">
-                  <img src="./assets/images/popular-3.jpg" alt="Kyoto temple, japan" loading="lazy">
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-
-                  <p class="card-subtitle">
-                    <a href="#">Kerala</a>
-                  </p>
-
-                  <h3 class="h3 card-title">
-                    <a href="#">Alumkkadavu-Alleppey</a>
-                  </h3>
-
-                  <p class="card-text">
-                    The Alumkkadavu-Alleppey package.
-                  </p>
-
-                </div>
-
-              </div>
-            </li>
+            {% endfor %}
+            
 
           </ul>
 
@@ -349,20 +283,20 @@
             while also offering stunning views of the surrounding waterways and wildlife.
           </p>
           <ul class="package-list">
-
+            {% for package in packages %}
             <li data-aos="zoom-in-up">
               <div class="package-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/packege-1.jpg" alt="Experience The Great Holiday On Beach" loading="lazy">
+                  <img src="{{ package.pack_image }}" alt="Experience The Great Holiday On Beach" loading="lazy">
                 </figure>
 
                 <div class="card-content">
 
-                  <h3 class="h3 card-title">Alleppey Kumarakom Round</h3>
+                  <h3 class="h3 card-title">{{ package.name }} Round</h3>
 
                   <p class="card-text">
-                    1 Night
+                    {{ package.duration_txt }}
                   </p>
 
                   <ul class="card-meta-list">
@@ -371,7 +305,7 @@
                       <div class="meta-box">
                         <ion-icon name="time"></ion-icon>
 
-                        <p class="text">1D/1N</p>
+                        <p class="text">{{ package.duration }}</p>
                       </div>
                     </li>
 
@@ -379,7 +313,7 @@
                       <div class="meta-box">
                         <ion-icon name="people"></ion-icon>
 
-                        <p class="text">pax: 10</p>
+                        <p class="text">pax: {{ package.max_people }}</p>
                       </div>
                     </li>
 
@@ -387,7 +321,7 @@
                       <div class="meta-box">
                         <ion-icon name="location"></ion-icon>
 
-                        <p class="text">Kumarakom</p>
+                        <p class="text">{{ package.location }}</p>
                       </div>
                     </li>
 
@@ -397,22 +331,9 @@
 
                 <div class="card-price">
 
-                  <div class="wrapper">
-
-                    <p class="reviews">(25 reviews)</p>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </div>
-
-                  </div>
 
                   <p class="price">
-                    Rs 1000
+                    Rs {{ package.price }}
                     <span>/ per person</span>
                   </p>
                   <form action="package.html">
@@ -423,157 +344,7 @@
 
               </div>
             </li>
-
-            <li data-aos="zoom-in-up">
-              <div class="package-card">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/packege-2.jpg" alt="Summer Holiday To The Oxolotan River" loading="lazy">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">Alleppey Round </h3>
-
-                  <p class="card-text">
-                    1 Night/2 Nights
-                  </p>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="time"></ion-icon>
-
-                        <p class="text">1D/1N</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="people"></ion-icon>
-
-                        <p class="text">pax: 10</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="location"></ion-icon>
-
-                        <p class="text">Alleppey</p>
-                      </div>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-                <div class="card-price">
-
-                  <div class="wrapper">
-
-                    <p class="reviews">(20 reviews)</p>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </div>
-
-                  </div>
-
-                  <p class="price">
-                    Rs 1500
-                    <span>/ per person</span>
-                  </p>
-
-                  <form action="package.html">
-                    <button class="btn btn-secondary" type="submit">More Details</button>
-                  </form>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li data-aos="zoom-in-up">
-              <div class="package-card">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/packege-3.jpg" alt="Santorini Island's Weekend Vacation" loading="lazy">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">Alumkkadavu - Alleppey </h3>
-
-                  <p class="card-text">
-                    2 Nights
-                  </p>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="time"></ion-icon>
-
-                        <p class="text">2D/2N</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="people"></ion-icon>
-
-                        <p class="text">pax: 10</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="location"></ion-icon>
-
-                        <p class="text">Alumkadavu</p>
-                      </div>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-                <div class="card-price">
-
-                  <div class="wrapper">
-
-                    <p class="reviews">(40 reviews)</p>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </div>
-
-                  </div>
-
-                  <p class="price">
-                    Rs 2000
-                    <span>/ per person</span>
-                  </p>
-
-                  <form action="package.html">
-                    <button class="btn btn-secondary" type="submit">More Details</button>
-                  </form>
-
-                </div>
-
-              </div>
-            </li>
-
+            {% endfor %}
           </ul>
 
           <button class="btn btn-primary">View All Packages</button>
@@ -606,37 +377,13 @@
           </p>
 
           <ul class="gallery-list">
-
+          {% for file in gallery %}
             <li class="gallery-item" data-aos="zoom-in-right">
               <figure class="gallery-image">
-                <img src="./assets/images/gallery-1.jpg" alt="Gallery image">
+                <img src="{{ file.image }}" alt="{{ file.alternate_tag }}">
               </figure>
             </li>
-
-            <li class="gallery-item" data-aos="zoom-in-left">
-              <figure class="gallery-image">
-                <img src="./assets/images/gallery-2.jpg" alt="Gallery image">
-              </figure>
-            </li>
-
-            <li class="gallery-item" data-aos="zoom-in-up">
-              <figure class="gallery-image">
-                <img src="./assets/images/gallery-3.jpg" alt="Gallery image">
-              </figure>
-            </li>
-
-            <li class="gallery-item" data-aos="zoom-in-right">
-              <figure class="gallery-image">
-                <img src="./assets/images/gallery-4.jpg" alt="Gallery image">
-              </figure>
-            </li>
-
-            <li class="gallery-item" data-aos="zoom-in-left">
-              <figure class="gallery-image">
-                <img src="./assets/images/gallery-5.jpg" alt="Gallery image">
-              </figure>
-            </li>
-
+            {% endfor %}
           </ul>
 
         </div>
@@ -696,7 +443,7 @@
           </p>-->
           <h1>BOOK NOW</h1>
           <br>
-          <img src="./assets/images/visa.jpg" alt="San miguel, italy" loading="lazy">
+          <img src="{% static 'img/pay_methods.jpg' %}" alt="San miguel, italy" loading="lazy">
 
         </div>
 
