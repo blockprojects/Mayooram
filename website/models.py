@@ -1,6 +1,11 @@
 from django.db import models
 
 # Create your models here.
+
+"""
+To add new choice use the same format and it as tuple in the list, day/night should be the format
+
+"""
 DURATION_CHOICES =[
     ("1D/1N", "1 Day and 1 Night"),
     ("1D/2N", "1 Day and 2 Night"),
@@ -9,22 +14,17 @@ DURATION_CHOICES =[
   
 
 class Package(models.Model):
-    name = models.CharField(max_length=50)
-    dest_image = models.ImageField(upload_to='uploads/')
+    name = models.CharField(max_length=50, help_text="Enter Package Name <em>(max 50 characters)</em>")
+    dest_image = models.ImageField(upload_to='uploads/', help_text="This would show up in Destination section of home page")
     location = models.CharField(max_length=50)
-    pack_image = models.ImageField(upload_to='uploads/')
+    pack_image = models.ImageField(upload_to='uploads/',  help_text="This would show up in Package section of home page")
     max_people = models.IntegerField(default=10)
     duration = models.CharField(max_length=20,choices=DURATION_CHOICES, default="1/1")
-    price = models.IntegerField(default=1000)
-    pack_desc_image = models.ImageField(upload_to='uploads/')
-    pack_description = models.TextField()
-    pack_includes = models.TextField()
-    pack_services = models.TextField()
-
-    def save(self):
-        day, night = self.duration.split('/')
-        self.duration_text = f'{day.replace("D","")} Days/{night.replace("N","")} Nights'
-        super().save()
+    price = models.IntegerField(default=1000, help_text="Price per person in INR <strong>doesn't support decimal values</strong>")
+    pack_desc_image = models.ImageField(upload_to='uploads/', help_text="This would show up in Package Description section of package page")
+    pack_description = models.TextField(help_text="Just press Enter to add a linebreak")
+    pack_includes = models.TextField(help_text="Just press Enter to add a linebreak")
+    pack_services = models.TextField(help_text="<strong>Enter every service on a new line</strong>")
 
     def __str__(self):
         return self.name
