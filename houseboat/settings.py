@@ -135,3 +135,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles'), ]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['https://api.razorpay.com']
+
+# User defined values
+RAZORPAY_ID = "" #also set it in package.html in 430th line
+RAZORPAY_SECRET = ''
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+ADMIN_EMAIL_ADDRESS = ''
+EMAIL_HOST_USER = '' #sender's email-id
+EMAIL_HOST_PASSWORD = ''#password associated with above email-id
