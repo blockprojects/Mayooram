@@ -170,10 +170,10 @@
       <!--onnu edit chythu nokkam-->
       <div class="containerpack">
         <br>
-        <h3>ALLEPPEY KUMARAKOM ROUND</h3>
+        <h1 id="packname">{{ package.name }} Package</h1>
 
         <div class="pack">
-            <img src="/{{ package.pack_desc_image }}">
+          <img src="/{{ package.pack_desc_image }}">
         </div>
 
         <div>
@@ -223,7 +223,7 @@
         <div class="buttonarray">
           <button class="btn btn-primary" id="booknow">Book Now</button>
           <br>
-          <button class="btn btn-primary" id="Enquire">Enquire</button>
+          <button class="btn btn-primary" id="enquire">Enquire</button>
         </div>
     </article>
   </main>
@@ -246,7 +246,7 @@
         </p>
       </div>
 
-      <button class="btn btn-secondary">Contact Us !</button>
+      <button class="btn btn-secondary" id="contactus">Contact Us !</button>
 
     </div>
   </section>
@@ -263,7 +263,7 @@
       <div class="container">
 
         <div class="footer-brand">
-          <h1>BOOK NOW</h1>
+          <h1>WE SUPPORT</h1>
           <br>
           <img id="visa" src="{% static 'img/pay_methods.jpg' %}" alt="San miguel, italy" loading="lazy">
 
@@ -374,34 +374,89 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
     const button = document.getElementById('booknow');
-    console.log(button);
     button.addEventListener("click", async function () {
 
       const { value: formValues } = await Swal.fire({
-        title: 'Fill the form',
+        title: 'Enter user details',
         html:
+          '<center>' +
           '<label for="swal-input1">Enter name</label>' +
           '<input id="swal-input1" type="name" class="swal2-input">' +
           '<label for="swal-input2">Enter email</label>' +
           '<input id="swal-input2" type="email" class="swal2-input">' +
           '<label for="swal-input3">Enter phone</label>' +
-          '<input id="swal-input3" type="number" class="swal2-input">',
+          '<input id="swal-input3" type="number" class="swal2-input">' +
+          '<center>',
         focusConfirm: false,
+        confirmButtonText: 'Pay {{ package.price }}',
+        confirmButtonColor: '#3085d6',
+        didClose: () => {
+          Swal.showLoading()
+        },
         preConfirm: () => {
-          return [
-            document.getElementById('swal-input1').value,
-            document.getElementById('swal-input2').value,
-            document.getElementById('swal-input3').value
-          ]
+          const name = document.getElementById('swal-input1').value
+          const email = document.getElementById('swal-input2').value
+          const phone = document.getElementById('swal-input3').value
+          const nameRegex = /^[a-zA-Z\s]+$/
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          const phoneRegex = /^\d{10}$/
+          if (!nameRegex.test(name)) {
+            Swal.showValidationMessage('Please enter a valid name')
+          } else if (!emailRegex.test(email)) {
+            Swal.showValidationMessage('Please enter a valid email address')
+          } else if (!phoneRegex.test(phone)) {
+            Swal.showValidationMessage('Please enter a valid phone number')
+          } else {
+            return [name, email, phone]
+          }
         }
-      })
-
-      if (formValues) {
-        Swal.fire(JSON.stringify(formValues))
-      }
-
+      }).then(async (result) => {
+        if (result.value) {
+          const [name, email, phone] = result.value;
+          let response = await fetch(window.location.origin + "/create/order", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              amount: "{{ package.price }}",
+            }),
+          });
+          let orderData = await response.json();
+          var options = {
+            key: "",
+            amount: orderData.order.amount, //need to update amount here
+            currency: "INR",
+            order_id: orderData.order.id,
+            "callback_url": window.location.origin + "/success",
+            "name": "House Boat",
+            "description": "Test Transaction",
+            "image": "{{ image }}", //place icon here
+            "prefill": {
+              "name": name,
+              "email": email,
+              "contact": phone,
+            },
+            "notes": {
+              "package_name": "{{ package.name }}",
+              "package_id": "{{ package.id }}",
+              "name": name,
+              "email": email,
+              "phone": phone,
+            },
+            "theme": {
+              "color": "#3085d6"
+            }
+          };
+          Swal.hideLoading();
+          Swal.clickConfirm()
+          var rzp1 = new Razorpay(options);
+          rzp1.open();
+        };
+      });
     });
   </script>
 </body>

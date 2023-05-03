@@ -227,7 +227,7 @@
 
           </ul>
 
-          <button class="btn btn-primary">More destintion</button>
+          <!-- <button class="btn btn-primary">More destintion</button> -->
 
         </div>
       </section>
@@ -336,9 +336,9 @@
                     Rs {{ package.price }}
                     <span>/ per person</span>
                   </p>
-                  <form action="package.html">
+                  <a href="package/{{package.id}}"">
                     <button class="btn btn-secondary" type="submit">More Details</button>
-                  </form>
+                  </a>
 
                 </div>
 
@@ -413,7 +413,7 @@
             </p>
           </div>
 
-          <button class="btn btn-secondary">Contact Us !</button>
+          <button class="btn btn-secondary"  id="contactus" >Contact Us !</button>
 
         </div>
       </section>
@@ -441,7 +441,7 @@
            <br>
            Contact Us
           </p>-->
-          <h1>BOOK NOW</h1>
+          <h1>WE SUPPORT</h1>
           <br>
           <img src="{% static 'img/pay_methods.jpg' %}" alt="San miguel, italy" loading="lazy">
 
@@ -541,6 +541,7 @@
 
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- 
     - custom js link
   -->
