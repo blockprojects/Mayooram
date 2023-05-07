@@ -1,3 +1,5 @@
 django
 django-admin-interface
 razorpay
+python-dotenv
+psycopg2-binary
